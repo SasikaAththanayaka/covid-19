@@ -1,103 +1,70 @@
 import React from 'react';
-import { Card,CardGroup ,Body,Row,col} from 'react-bootstrap';
-import CountUp from 'react-countup';
+import {Card,CardGroup} from 'react-bootstrap';
+import CountUp from "react-countup";
 
 function DisplayGlobal(props){
-    const { global_deaths,global_new_deaths,global_new_cases,global_recovered,global_total_cases} =props.data;
+    const { global_deaths,global_recovered,global_total_cases,update_date_time} =props.data;
     //console.log()
     return(
-        <div className='container'>
-            <div className="row">
+        <div className="Container">
             
-                <Card style={{ width: '15rem' }}>
+            <CardGroup >
+                <Card className="text-center" bg="Secondary"  style={{ margin : "2rem" ,borderEndEndRadius : "10%"}}>
                     
                     <Card.Body>
-                        <Card.Title> 
+                    <Card.Title>Global_Total_Cases</Card.Title>
+                    <Card.Text>
                         <CountUp 
-                                start={0}
-                                end={global_deaths}
-                                duration ={2.5}
-                                separator=',' >
-                                
-                            </CountUp>
-                            
-                        </Card.Title>
-                        <Card.Text>
+                            start={0}
+                            end ={global_total_cases}
+                            duration={2.5}
+                            separator=','
+                        />
                         
-                           Global Deaths
-                        </Card.Text>
+                    </Card.Text>
                     </Card.Body>
+                    <Card.Footer>
+                    <small className="text-muted">Last updated   {update_date_time}</small>
+                    </Card.Footer>
                 </Card>
+                <Card className="text-center" bg="Danger"  style={{ margin : "2rem",borderEndEndRadius : "10%"}}>
 
-                <Card style={{ width: '15rem' }}>
-                    
                     <Card.Body>
-                        <Card.Title>
+                    <Card.Title>Global_Deaths</Card.Title>
+                    <Card.Text>
                         <CountUp 
-                                start={0}
-                                end={global_new_deaths}
-                                duration ={2.5}
-                                separator=',' >
-                                
-                            </CountUp>
-                        </Card.Title>
-                        <Card.Text>
-                        global_new_deaths
-                        </Card.Text>
+                            start={0}
+                            end ={global_deaths}
+                            duration={2.5}
+                            separator=','
+                            
+                        />
+                        
+                    </Card.Text>
                     </Card.Body>
+                    <Card.Footer>
+                    <small className="text-muted">Last updated {update_date_time}</small>
+                    </Card.Footer>
                 </Card>
+                <Card className="text-center" bg="Info" style={{ margin : "2rem",borderEndEndRadius : "10%"}} >
 
-                <Card style={{ width: '15rem' }} >
-                    
                     <Card.Body>
-                        <Card.Title><CountUp 
-                                start={0}
-                                end={global_new_cases}
-                                duration ={2.5}
-                                separator=',' >
-                                
-                            </CountUp></Card.Title>
-                        <Card.Text>
-                        global_new_cases
-                        </Card.Text>
+                    <Card.Title>Global_Recovered</Card.Title>
+                    <Card.Text>
+                        <CountUp 
+                            start={0}
+                            end ={global_recovered}
+                            duration={2.5}
+                            separator=','
+                        />
+                       
+                    </Card.Text>
                     </Card.Body>
+                    <Card.Footer>
+                    <small className="text-muted">Last updated {update_date_time}</small>
+                    </Card.Footer>
                 </Card>
-                
-                <Card style={{ width: '15rem' }}>
-                    
-                    <Card.Body>
-                        <Card.Title><CountUp 
-                                start={0}
-                                end={global_recovered}
-                                duration ={2.5}
-                                separator=',' >
-                                
-                            </CountUp></Card.Title>
-                        <Card.Text>
-                        global_recovered
-                        </Card.Text>
-                    </Card.Body>
-                </Card>
-
-                <Card style={{ width: '15rem' }}>
-                    
-                    <Card.Body>
-                        <Card.Title>
-                            <CountUp 
-                                start={0}
-                                end={global_total_cases}
-                                duration ={2.5}
-                                separator=',' />
-                                
-                            </Card.Title>
-                        <Card.Text>
-                        global_total_cases
-                        </Card.Text>
-                    </Card.Body>
-                </Card>
-                
-
-            </div>
+            </CardGroup>
             
         </div>
     );

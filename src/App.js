@@ -5,7 +5,7 @@ import NavBar from './Components/NavBar';
 import DisplayGlobal from './Components/DisplayGlobal';
 import DisplayLocal from './Components/DisplayLocal';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Button} from 'react-bootstrap';
+import {Form} from 'react-bootstrap';
 class App extends React.Component{
 
   state={
@@ -36,7 +36,7 @@ class App extends React.Component{
       console.log(res.data.data)
     })
   }*/
-  
+
     componentDidMount (){
     
     Axios.get( `https://www.hpb.health.gov.lk/api/get-current-statistical`).then(res =>{
@@ -58,18 +58,34 @@ class App extends React.Component{
         update_date_time:res.data.data.update_date_time
       }
       this.setState({data:newData});
-      //console.log(res.data.data)
+      console.log(res.data.data)
     })
   }
   render(){
     return(
-      
-      <div className='container'>
-          <h2>{this.state.total_antigen_testing_count}</h2>
-          <NavBar/>
-          <DisplayGlobal data={this.state.data}/>
-          <DisplayLocal data={this.state.data}/>
-          
+      <div className="App">
+        <NavBar />
+        <div className='Container'>
+            
+            <DisplayGlobal data={this.state.data}/>
+  
+        </div>
+        <div className="Container">
+            <DisplayLocal data={this.state.data}/>
+        </div>
+        <div className="Container">
+          <Form className="form"> 
+              <Form.Group className="mb-3" >
+                <Form.Control type="email" placeholder="Enter Country" />
+                <Form.Text className="text-muted">
+                  We'll never share your email with anyone else.
+                </Form.Text>
+              </Form.Group>
+
+              
+            </Form>
+        </div>
+        
       </div>
     );
   }

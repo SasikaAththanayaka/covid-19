@@ -1,99 +1,83 @@
 import React from 'react';
-import { Card,CardGroup ,Body,Row,col} from 'react-bootstrap';
-import CountUp from 'react-countup';
-
+import {Card,CardGroup} from 'react-bootstrap'
+import CountUp from "react-countup";
 function DisplayLocal(props){
     const { local_active_cases,local_deaths,local_new_cases,local_new_deaths,local_recovered,local_total_cases,local_total_number_of_individuals_in_hospitals,total_antigen_testing_count,total_pcr_testing_count,update_date_time} =props.data;
-    let n=local_active_cases;
-    console.log(local_recovered)
     return(
-        <div className='container'>
-            <div className="row">
+        <div className="Container " >
             
-                <Card  border="info" style={{ width: '15rem'  }}>
+            <CardGroup >
+                <Card className="text-center" border="dark" bg="Primary"  style={{ margin : "2rem", borderEndEndRadius : "10%"}}>
                     
                     <Card.Body>
-                        <Card.Title> 
+                    <Card.Title>Local_Active_Cases</Card.Title>
+                    <Card.Text>
                         <CountUp 
-                                start={0}
-                                end={local_recovered}
-                                duration ={2.5}
-                                separator=','
-                         >
-                                
-                            </CountUp>          
-                        </Card.Title>
-                        <Card.Text>
-                          
-                           Global Deaths
-                        </Card.Text>
+                            start={0}
+                            end ={local_active_cases}
+                            duration={2.5}
+                            separator=','
+                        />
+                    </Card.Text>
                     </Card.Body>
+                    <Card.Footer>
+                    <small className="text-muted">Last updated   {update_date_time}</small>
+                    </Card.Footer>
                 </Card>
-
-                <Card style={{ width: '15rem' }}>
+                <Card className="text-center" border="dark" bg="Primary"  style={{ margin : "2rem", borderEndEndRadius : "10%"}}>
                     
                     <Card.Body>
-                        <Card.Title>
+                    <Card.Title>Local_Total_Cases</Card.Title>
+                    <Card.Text>
                         <CountUp 
-                                start={0}
-                                end={local_deaths}
-                                duration ={2.5}
-                                separator=','
-                                >
-                                
-                            </CountUp>
-                        </Card.Title>
-                        <Card.Text>
-                        global_new_deaths
-                        </Card.Text>
+                            start={0}
+                            end ={local_total_cases}
+                            duration={2.5}
+                            separator=','
+                        />
+                    </Card.Text>
                     </Card.Body>
+                    <Card.Footer>
+                    <small className="text-muted">Last updated   {update_date_time}</small>
+                    </Card.Footer>
                 </Card>
+                <Card className="text-center" border="dark" bg="Danger"  style={{ margin : "2rem",borderEndEndRadius : "10%"}}>
 
-                <Card style={{ width: '15rem' }} >
-                    
                     <Card.Body>
-                        <Card.Title><CountUp 
-                                start={0}
-                                end={local_new_cases}
-                                duration ={2.5}
-                                separator=',' >
-                                
-                            </CountUp></Card.Title>
-                        <Card.Text>
-                        global_new_cases
-                        </Card.Text>
+                    <Card.Title>Local_Deaths</Card.Title>
+                    <Card.Text>
+                        <CountUp 
+                            start={0}
+                            end ={local_deaths}
+                            duration={2.5}
+                            separator=','
+                        />
+                    </Card.Text>
                     </Card.Body>
+                    <Card.Footer>
+                    <small className="text-muted">Last updated {update_date_time}</small>
+                    </Card.Footer>
                 </Card>
-                
-                <Card style={{ width: '15rem' }}>
-                    
-                    <Card.Body>
-                        <Card.Title><CountUp 
-                                start={0}
-                                end={local_new_deaths}
-                                duration ={2.5}
-                                separator=',' >
-                                
-                            </CountUp></Card.Title>
-                        <Card.Text>
-                        global_recovered
-                        </Card.Text>
-                    </Card.Body>
-                </Card>
+                <Card className="text-center" border="dark" bg="Info" style={{ margin : "2rem",borderEndEndRadius : "20%",borderEndEndRadius : "10%"}} >
 
-                <Card style={{ width: '15rem' }}>
-                    
                     <Card.Body>
-                        <Card.Title>{update_date_time}</Card.Title>
-                        <Card.Text>
-                        Date
-                        </Card.Text>
+                    <Card.Title>Local_Recovered</Card.Title>
+                    <Card.Text>
+                        <CountUp 
+                            start={0}
+                            end ={local_recovered}
+                            duration={2.5}
+                            separator=','
+                        />
+                        
+                    </Card.Text>
                     </Card.Body>
+                    <Card.Footer>
+                    <small className="text-muted">Last updated {update_date_time}</small>
+                    </Card.Footer>
                 </Card>
-                
+            </CardGroup>
 
-            </div>
-            
         </div>
     );
 }

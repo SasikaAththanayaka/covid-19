@@ -1,12 +1,32 @@
+
 .App {
   text-align: center;
+  background: #2a2b2c;
+  height :100vh;
+  width : 100%;
+  
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.Container{
+  padding-top: 15px;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  background-color:rgba(153, 147, 148, 0.534);
 }
+.text-center{
+  border-radius: 100%;
+}
+.navBar{
+ 
+  text-align: center;
+  background-color: rgba(168, 132, 154, 0.911);
+}
+.form{
+  padding-top: 15px;
+  margin-right: 25%;
+  margin-left: 25%;
+  font-size: medium;
 
+}
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;

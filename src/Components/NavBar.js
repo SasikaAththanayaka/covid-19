@@ -1,7 +1,7 @@
 import React from 'react';
 function NavBar(){
     return(
-        <div className='container' >
+        <div className='navBar' >
             <h1>
                COVID-19
             </h1>
